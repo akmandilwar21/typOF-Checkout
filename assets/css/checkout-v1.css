@@ -1,0 +1,465 @@
+.cart-viewport p {
+	font-size: 1.2rem;
+	font-weight: 500;
+	line-height: 1.2
+}
+
+.cart-viewport h5,
+.cart-viewport p {
+	margin: 0
+}
+
+.cart-viewport input {
+	border: 0
+}
+
+.d-off {
+	display: none!important
+}
+
+.m-left {
+	margin-left: 15px!important
+}
+
+.cart-viewport {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #5e5e5e89;
+	z-index: 9
+}
+
+.add-list {
+	position: relative
+}
+
+.add-list span {
+    position: absolute;
+    top: 20%;
+    right: 6px;
+    font-size: 18px;
+    background: #00000000;
+    border-radius: 50%;
+    color: #000;
+    padding: 0px 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.typof-cart {
+	width: 800px;
+	height: 440px;
+	border-radius: 20px;
+	margin: 0 auto;
+	position: relative;
+	display: flex!important;
+	margin-top: 5%
+}
+
+.typof-cart h6 {
+	font-size: 1.35rem
+}
+
+.login-steps h6 span {
+	border-radius: 50%;
+	padding: 0 6px;
+	border: 1px solid #000
+}
+
+.close-cart {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 5px;
+	right: 5px;
+	background: #ddd;
+	border-radius: 20px
+}
+
+.t-col-6 {
+	display: flex;
+	width: 60%;
+	background: #fff;
+	border-radius: 20px 0 0 20px;
+	flex-direction: column
+}
+
+.t-col-4 {
+	display: flex;
+	width: 40%;
+	background: #fbfbfb;
+	border-radius: 0 20px 20px 0;
+	flex-direction: column;
+	padding: 15px
+}
+
+.df {
+	display: flex
+}
+
+.fdc {
+	flex-direction: column
+}
+
+.fdr {
+	flex-direction: row
+}
+
+.aic {
+	align-items: center
+}
+
+.note {
+	background: #fff;
+	border-radius: 15px;
+	padding: 20px
+}
+
+.order-summary {
+	min-height: 180px;
+	background: #fff;
+	border-radius: 15px;
+	margin-bottom: 15px;
+	padding: 10px
+}
+
+.coupon {
+	background: #fff;
+	border-radius: 15px;
+	padding: 20px;
+	position: relative;
+	display: flex;
+	margin-bottom: 15px
+}
+
+.coupon input[name=coupon] {
+	border: 1px dashed #000;
+	padding: 5px 50px 5px 10px;
+	border-radius: 5px;
+	width: calc(100%);
+	background: #f7f7f7
+}
+
+.input-2 input {
+	width: calc(100% - 15px / 2)
+}
+
+.input-3 input {
+	width: calc(100% - 15px / 3)
+}
+
+.coupon #coupon-button {
+	position: absolute;
+	top: 24px;
+	right: 20px;
+	background: 0 0;
+	border: 0;
+	cursor: pointer
+}
+
+.list-product {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 15px;
+	margin-top: 15px
+}
+
+.summ,
+.to-pay {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px
+}
+
+.to-pay {
+	border-top: 1px solid #ddd;
+	font-size: 1.2rem;
+	padding-top: 10px
+}
+
+.list-product>.p-image {
+	width: 80px
+}
+
+.list-product>.p-image img {
+	width: 80px
+}
+
+.list-product div:nth-child(2) {
+	width: calc(100% - 90px)
+}
+
+.list-product div:nth-child(2) p:nth-child(1) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.register {
+	padding: 0 25px
+}
+
+.login-steps {
+	display: flex;
+	justify-content: space-between;
+	padding: 25px
+}
+
+.mob-section input {
+	font-size: 1.4rem;
+	margin-bottom: 20px
+}
+
+.mob-section input[name=mobile-prefix] {
+	width: 50px
+}
+
+.mob-section {
+	width: 100%;
+	padding: 0 25px
+}
+
+.mobile button {
+	padding: 10px 39px;
+	border: 1px solid #ddd;
+	border-radius: 10px
+}
+
+.login-steps div {
+	width: calc(100%/3);
+	padding: 10px 0;
+	border-bottom: 2px solid #ddd
+}
+
+.login-steps div:nth-child(2) {
+	text-align: center
+}
+
+.login-steps .line-active {
+	border-bottom-color: green;
+	color: green
+}
+
+.login-steps div:nth-child(3) {
+	text-align: right
+}
+
+.order-detail {
+	max-height: 70px;
+	overflow: hidden;
+	overflow-y: overlay
+}
+
+.address {
+	padding: 0 22px
+}
+
+.address input,
+.credit input,
+.login input,
+.mob-section input[name=mobile],
+.otp input,
+.register input,
+.upi input {
+	margin-bottom: 15px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 5px;
+	padding-left: 10px;
+	width: 100%
+}
+
+.address #add_address,
+.address-present #add-select,
+.login #login,
+.mobile #mobile-continue,
+.otp #verify,
+.pay-now,
+.register #reg_user {
+	padding: 6px 41px;
+	border-radius: 5px;
+	border: 1px solid #000;
+	background: #000;
+	color: #fff
+}
+
+.address-present .add-list {
+	position: relative
+}
+
+.address-present .add-list .checkbox {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: #000;
+	position: absolute;
+	top: 30%;
+	left: 5px
+}
+
+.loader-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: #ddd3;
+	z-index: 20;
+	display: none
+}
+
+.loader {
+	border: 5px solid #f3f3f3;
+	border-top: 5px solid #3498db;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	animation: spin 2s linear infinite;
+	position: absolute;
+	top: 45%;
+	left: 45%
+}
+
+.error {
+    margin: 0px 25px 15px 25px;
+    background: #ff0000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+.success {
+    margin: 0px 25px 15px 25px;
+    background: #008000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.error p, .success p {
+    color: #fff;
+    font-size: 12px;
+}
+
+.ap-d {
+    padding: 0 25px !important;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 190px;
+    width: 100% !important;
+}
+
+.ap-d::-webkit-scrollbar,
+.order-detail::-webkit-scrollbar {
+	width: 5px
+}
+
+.ap-d::-webkit-scrollbar-track,
+.order-detail::-webkit-scrollbar-track {
+	background: #f1f1f1
+}
+
+.ap-d::-webkit-scrollbar-thumb,
+.order-detail::-webkit-scrollbar-thumb {
+	background: #888
+}
+
+.ap-d::-webkit-scrollbar-thumb:hover,
+.order-detail::-webkit-scrollbar-thumb:hover {
+	background: #555
+}
+
+.ap-d div p {
+    padding-right: 20px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+    padding-left: 18px;
+    cursor: pointer;
+}
+
+#back-to-address {
+	cursor: pointer
+}
+
+.btn-add-address {
+	background: #f9f9f9;
+	border-radius: 5px;
+	border: 0
+}
+
+.ap-d div p.active {
+    border-color: #000000;
+}
+
+#pay-icons div {
+	min-width: 33.33%;
+	cursor: pointer;
+	margin-bottom: 30px
+}
+
+.flx-wrap {
+	flex-wrap: wrap
+}
+
+#pay-icons {
+	width: 100%;
+	padding: 0 25px
+}
+
+#pay-icons p {
+	text-align: center
+}
+
+.otp {
+	padding: 0 25px
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
+}
+
+@media (max-width:576px) {
+	.typof-cart {
+		width: 100%;
+		height: auto!important;
+		flex-direction: column-reverse
+	}
+	.t-col-6 {
+		border-radius: 0;
+		min-height: 200px
+	}
+	.t-col-4 {
+		border-radius: 0
+	}
+	.t-col-4,
+	.t-col-6 {
+		width: 100%
+	}
+}
+
+.upi-wait {
+	position: absolute;
+	background: #a7a7a7a6;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
+}
+
+.upi-wait p {
+	color: #000;
+	margin-top: 20%;
+	font-size: 22px;
+	background: #fff;
+	padding: 65px 40px;
+	border-radius: 5px;
+}
+
+.back-to-payment-gateway {
+	cursor: pointer;
+}
