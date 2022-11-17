@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Footer(prop:any) {
   const footer = prop.prop;
   const footer_color = {
-    backgroundColor: footer.lpm.data.footer_module.foot_bg ?? "#000000"
+    backgroundColor: footer.lpm.footer_module.foot_bg ?? "#000000"
   }
   return (
         <footer className="footer footer-2" style={footer_color}>
@@ -20,7 +20,7 @@ export default function Footer(prop:any) {
                                     <Image src={footer.store.logo} className="footer-logo" alt="Logo" height="50" width="50"/>
                                     :<img src="https://d1yvcml1qpeqwy.cloudfront.net/flogo.png" className="footer-logo" alt="Logo" height="50" width="auto"/>
                                 }
-                                <p id="one" style={{marginBottom: "20px"}}>{footer.lpm.data.footer_module.footer_description ?? ""}</p>
+                                <p id="one" style={{marginBottom: "20px"}}>{footer.lpm.footer_module.footer_description ?? ""}</p>
                             </div>
                             <p id="three">{footer.store.address && ""}</p> 
                         </div>
@@ -35,7 +35,7 @@ export default function Footer(prop:any) {
                                                 {
                                                     footer.page_col.col_1 && footer.page_col.col_1.map((value: any, index: any) => {
                                                         <li key={index}>
-                                                            <a href="/store/{value.slug}">{value.page_title}</a>
+                                                            <a href={"/store/"+value.slug}>{value.page_title}</a>
                                                         </li>
                                                     })
                                                 }

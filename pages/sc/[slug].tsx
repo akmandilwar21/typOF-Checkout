@@ -2,9 +2,13 @@ import { Key, useState } from "react"
 import axios from 'axios'
 import {hasCookie, getCookie, setCookie} from 'cookies-next'
 import App from "next/app"
-import {default as GangaLayout}  from  '../components/ganga/layout'
+import { useRouter } from 'next/router'
+import {default as GangaLayout}  from  '../../components/ganga/layout'
 
 function Home(res:any) {
+    const router = useRouter();
+    const { slug } = router.query;
+
   const [items, setItems] = useState(res.response.menu_pages);
   const getHomeData = () => {
     axios.get('https://demo.typof.com/api/next/index').then((res)=>{
