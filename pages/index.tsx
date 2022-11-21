@@ -1,31 +1,47 @@
-import { Key, useState } from "react"
+import { useContext, Key, useState, useEffect } from "react"
 import axios from 'axios'
 import {hasCookie, getCookie, setCookie} from 'cookies-next'
 import App from "next/app"
 import {default as GangaLayout}  from  '../components/ganga/layout'
+import { env } from "process"
 
-function Home(res:any) {
-  const [items, setItems] = useState(res.response.menu_pages);
-  const getHomeData = () => {
-    axios.get('https://demo.typof.com/api/next/index').then((res)=>{
-      setItems(res.data.menu_pages);
-    })
+
+function Home(props: any) {
+  const w = getCookie('website')??"{}"
+  const website = JSON.parse(w.toString())
+
+  const common_scan = "common_"+(website.currency_code??"IND")+"_"+website.store_id
+  const index_scan = "index_"+(website.currency_code??"IND")+"_"+website.store_id
+  const headers = {
+    'Content-Type': 'application/json',
+    'x-api-key': '6fcIyoO6Ql5xUnafYZOtsauUPIXjY5xkazDVllyS'
   }
 
-  const getHomes = () => {
-    return items.map((item: { page_title: string ; }, index: Key | null | undefined) => {
-      return (
-        <li key={index}>{item.page_title}</li>
-      )
-    })
-  }
+  const [data, setData] = useState({ws:""})
+  const [isLoading, setLoading] = useState(false)
 
-  const vs = process.env.NEXT_PUBLIC_URL;
+  useEffect(() => {
+    (async () => {
+      await axios.post("https://o19q8mwegc.execute-api.ap-south-1.amazonaws.com/Typof_Stage/common", {'scan_id': common_scan}, {headers}).then((res)=>{
+        setData(res.data.body)
+        console.log(common_scan)
+        setLoading(true)
+      })
+    })();
 
+    return () => {
+
+    }
+  }, [])
+
+  console.log(data.ws)
   switch ('ganga') {
     case 'ganga':
       return (
-        <GangaLayout props={res.response} />
+        <div>
+          asdfad
+        </div>
+        // <GangaLayout props={data} />
       )
       break;
   
@@ -34,22 +50,29 @@ function Home(res:any) {
   }
 }
 
-export async function getServerSideProps() {
-  const response = await axios.get('https://demo.typof.com/api/next/index').then((res)=>{
-    return res.data;
-  })
-  if (!response) {
-    return {
-      notFound: true,
-    }
-  }
-  return {
-    props: { response }, // will be passed to the page component as props
-  }
-}
+// export async function getServerSideProps() {
 
-export async function getInitialProps(Context: any) {
-  return App.getInitialProps(Context);
-}
+//   const headers = {
+//     'Content-Type': 'application/json',
+//     'x-api-key': env.NEXT_PUBLIC_AWS_KEY
+//   }
+
+//   const common = await axios.post("https://o19q8mwegc.execute-api.ap-south-1.amazonaws.com/Typof_Stage/common", {'scan_id': common_scan}, {headers}).then((res)=>{
+//     return res.data.body;
+//   })
+  
+//   const index = await axios.post("https://o19q8mwegc.execute-api.ap-south-1.amazonaws.com/Typof_Stage/common", {'scan_id': index_scan}, {headers}).then((res)=>{
+//     return res.data.body;
+//   })
+
+//   if (!common) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+//   return {
+//     props: { common, index }
+//   }
+// }
 
 export default Home;

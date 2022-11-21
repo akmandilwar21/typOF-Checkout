@@ -2,34 +2,15 @@ import { Key, useState } from "react"
 import axios from 'axios'
 import {hasCookie, getCookie, setCookie} from 'cookies-next'
 import App from "next/app"
-import { useRouter } from 'next/router'
 import {default as GangaLayout}  from  '../../components/ganga/layout'
+import { env } from "process"
 
 function Home(res:any) {
-    const router = useRouter();
-    const { slug } = router.query;
-
-  const [items, setItems] = useState(res.response.menu_pages);
-  const getHomeData = () => {
-    axios.get('https://demo.typof.com/api/next/index').then((res)=>{
-      setItems(res.data.menu_pages);
-    })
-  }
-
-  const getHomes = () => {
-    return items.map((item: { page_title: string ; }, index: Key | null | undefined) => {
-      return (
-        <li key={index}>{item.page_title}</li>
-      )
-    })
-  }
-
-  const vs = process.env.NEXT_PUBLIC_URL;
-
+  console.log(res)
   switch ('ganga') {
     case 'ganga':
       return (
-        <GangaLayout props={res.response} />
+        <GangaLayout props={res.common} />
       )
       break;
   
@@ -39,21 +20,27 @@ function Home(res:any) {
 }
 
 export async function getServerSideProps() {
-  const response = await axios.get('https://demo.typof.com/api/next/index').then((res)=>{
-    return res.data;
+  const headers = {
+    'Content-Type': 'application/json',
+    'x-api-key': env.NEXT_PUBLIC_AWS_KEY
+  }
+
+  const common = await axios.post("https://o19q8mwegc.execute-api.ap-south-1.amazonaws.com/Typof_Stage/common", {'scan_id': 'common_IND_1'}, {headers}).then((res)=>{
+    return res.data.body;
   })
-  if (!response) {
+  
+  const index = await axios.post("https://o19q8mwegc.execute-api.ap-south-1.amazonaws.com/Typof_Stage/common", {'scan_id': 'index_IND_1'}, {headers}).then((res)=>{
+    return res.data.body;
+  })
+
+  if (!common) {
     return {
       notFound: true,
     }
   }
   return {
-    props: { response }, // will be passed to the page component as props
+    props: { common, index }
   }
-}
-
-export async function getInitialProps(Context: any) {
-  return App.getInitialProps(Context);
 }
 
 export default Home;

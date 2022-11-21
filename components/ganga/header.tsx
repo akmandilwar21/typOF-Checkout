@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 
 export default function Header(prop:any) {
-  const header = prop.prop;
+  const header = prop;
   const header_color = {
     backgroundColor: header.lpm.header_module.head_bg ?? "#ffffff"
   }
